@@ -6,3 +6,10 @@ go:
 script:
   - mkdir -p build/
   - ./build.sh easy-upload.go
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  on:
+    branch: master
