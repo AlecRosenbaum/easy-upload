@@ -1,37 +1,18 @@
-## Welcome to GitHub Pages
+## What is this
 
-You can use the [editor on GitHub](https://github.com/AlecRosenbaum/easy-upload/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+This is really simple, not really secure way of transferring files/pictures/whatever over a local network easier.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+This is basically just a go version of https://github.com/josephernest/Yopp
 
-### Markdown
+This also an exercise in writing a go program, then connecting travis-ci and github pages to a repo. You know, for fun.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Download
 
-```markdown
-Syntax highlighted code block
+<a href="https://github.com/AlecRosenbaum/easy-upload/build/easy-upload.go-windows-amd64.exe" class="btn">Windows (amd64)</a>
+<a href="https://github.com/AlecRosenbaum/easy-upload/build/easy-upload.go-windows-386.exe" class="btn">Windows (386)</a>
+<a href="https://github.com/AlecRosenbaum/easy-upload/build/easy-upload.go-linux-amd64.exe" class="btn">Linux</a>
+<a href="https://github.com/AlecRosenbaum/easy-upload/build/easy-upload.go-darwin-amd64.exe" class="btn">Mac</a>
 
-# Header 1
-## Header 2
-### Header 3
+## Screenshots
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/AlecRosenbaum/easy-upload/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+TODO
