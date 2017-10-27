@@ -8,10 +8,10 @@ This also an exercise in writing my first go program, then connecting travis-ci 
 
 ## Download
 
-<a href="https://github.com/AlecRosenbaum/easy-upload/tree/gh-pages/build/easy-upload.go-windows-amd64.exe" class="btn">Windows (amd64)</a>
-<a href="https://github.com/AlecRosenbaum/easy-upload/tree/gh-pages/build/easy-upload.go-windows-386.exe" class="btn">Windows (386)</a>
-<a href="https://github.com/AlecRosenbaum/easy-upload/tree/gh-pages/build/easy-upload.go-linux-amd64" class="btn">Linux</a>
-<a href="https://github.com/AlecRosenbaum/easy-upload/tree/gh-pages/build/easy-upload.go-darwin-amd64" class="btn">Mac</a>
+<a href="https://github.com/AlecRosenbaum/easy-upload/raw/gh-pages/build/easy-upload.go-windows-amd64.exe" class="btn">Windows (amd64)</a>
+<a href="https://github.com/AlecRosenbaum/easy-upload/raw/gh-pages/build/easy-upload.go-windows-386.exe" class="btn">Windows (386)</a>
+<a href="https://github.com/AlecRosenbaum/easy-upload/raw/gh-pages/build/easy-upload.go-linux-amd64" class="btn">Linux</a>
+<a href="https://github.com/AlecRosenbaum/easy-upload/raw/gh-pages/build/easy-upload.go-darwin-amd64" class="btn">Mac</a>
 
 ## Screenshots
 
