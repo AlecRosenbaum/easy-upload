@@ -1,3 +1,2 @@
 theme: jekyll-theme-cayman
-github:
-  releases_url: https://github.com/AlecRosenbaum/easy-upload/releases/latest
+show_downloads: "true"
