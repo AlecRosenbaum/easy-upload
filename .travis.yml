@@ -5,9 +5,9 @@ go:
 
 script:
   - mkdir -p build/
-  - GOOS=windows GOARCH=amd64 go build -o build/easy-upload.exe easy-upload.go
-  - GOOS=darwin GOARCH=amd64 go build -o build/easy-upload.command easy-upload.go
-  - GOOS=linux GOARCH=amd64 go build -o build/easy-upload easy-upload.go
+  - GOOS=windows GOARCH=amd64 go build -o build/easy-upload-windows.exe easy-upload.go
+  - GOOS=darwin GOARCH=amd64 go build -o build/easy-upload-osx.command easy-upload.go
+  - GOOS=linux GOARCH=amd64 go build -o build/easy-upload-linux easy-upload.go
   - chmod +x build/*
 
 deploy:
