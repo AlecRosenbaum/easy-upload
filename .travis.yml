@@ -8,7 +8,7 @@ script:
   - GOOS=windows GOARCH=amd64 go build -o build/easy-upload-windows.exe easy-upload.go
   - GOOS=darwin GOARCH=amd64 go build -o build/easy-upload-osx.command easy-upload.go
   - GOOS=linux GOARCH=amd64 go build -o build/easy-upload-linux easy-upload.go
-  - chmod a+x build/*
+  - chmod -R u+x build
 
 deploy:
   provider: releases
