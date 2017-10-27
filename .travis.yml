@@ -4,4 +4,5 @@ go:
   - 1.x
 
 script:
-  - ./build.sh server.go
+  - mkdir -p build/
+  - ./build.sh easy-upload.go
