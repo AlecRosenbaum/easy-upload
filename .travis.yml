@@ -8,8 +8,11 @@ script:
   - ./build.sh easy-upload.go
 
 deploy:
-  provider: pages
+  provider: releases
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
+  file_glob: true
+  file: build/*
+  skip_cleanup: true
   on:
-    branch: master
+    tags: true
