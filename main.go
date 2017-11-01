@@ -5,11 +5,11 @@ import (
 	"html/template"
 	"io"
 	"log"
-    "net/http"
 	"net"
+	"net/http"
 	"os"
-    "runtime"
-    "os/exec"
+	"os/exec"
+	"runtime"
 )
 
 const html = `
@@ -98,6 +98,7 @@ const html = `
 </html>
 
 `
+
 var ip = ""
 
 func upload(w http.ResponseWriter, r *http.Request) {
@@ -126,43 +127,43 @@ func upload(w http.ResponseWriter, r *http.Request) {
 
 // open opens the specified URL in the default browser of the user.
 func open(url string) error {
-    var cmd string
-    var args []string
+	var cmd string
+	var args []string
 
-    switch runtime.GOOS {
-    case "windows":
-        cmd = "cmd"
-        args = []string{"/c", "start"}
-    case "darwin":
-        cmd = "open"
-    default: // "linux", "freebsd", "openbsd", "netbsd"
-        cmd = "xdg-open"
-    }
-    args = append(args, url)
-    return exec.Command(cmd, args...).Start()
+	switch runtime.GOOS {
+	case "windows":
+		cmd = "cmd"
+		args = []string{"/c", "start"}
+	case "darwin":
+		cmd = "open"
+	default: // "linux", "freebsd", "openbsd", "netbsd"
+		cmd = "xdg-open"
+	}
+	args = append(args, url)
+	return exec.Command(cmd, args...).Start()
 }
 
 func main() {
 
-    addrs, err := net.InterfaceAddrs()
-    if err != nil {
-        os.Stderr.WriteString("Oops: " + err.Error() + "\n")
-        os.Exit(1)
-    }
+	addrs, err := net.InterfaceAddrs()
+	if err != nil {
+		os.Stderr.WriteString("Oops: " + err.Error() + "\n")
+		os.Exit(1)
+	}
 
-    for _, a := range addrs {
-        if ipnet, ok := a.(*net.IPNet); ok && !ipnet.IP.IsLoopback() {
-            if ipnet.IP.To4() != nil {
-                ip = ipnet.IP.String()
-            }
-        }
-    }
+	for _, a := range addrs {
+		if ipnet, ok := a.(*net.IPNet); ok && !ipnet.IP.IsLoopback() {
+			if ipnet.IP.To4() != nil {
+				ip = ipnet.IP.String()
+			}
+		}
+	}
 
-    go open("http://" + ip + ":8080")
+	go open("http://" + ip + ":8080")
 
-    http.HandleFunc("/", upload)
-    err = http.ListenAndServe(":8080", nil) // set listen port
-    if err != nil {
-        log.Fatal("ListenAndServe: ", err)
-    }
+	http.HandleFunc("/", upload)
+	err = http.ListenAndServe(":8080", nil) // set listen port
+	if err != nil {
+		log.Fatal("ListenAndServe: ", err)
+	}
 }
