@@ -9,6 +9,8 @@ import (
 	"net/http"
 	"os"
 	"os/exec"
+	"os/user"
+	"path"
 	"runtime"
 )
 
@@ -113,7 +115,12 @@ func upload(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 		defer file.Close()
-		f, err := os.OpenFile("./"+handler.Filename, os.O_WRONLY|os.O_CREATE, 0666)
+
+		usr, err := user.Current()
+		if err != nil {
+			log.Fatal(err)
+		}
+		f, err := os.OpenFile(path.Join(usr.HomeDir, "Downloads", handler.Filename), os.O_WRONLY|os.O_CREATE, 0666)
 		if err != nil {
 			fmt.Println(err)
 			fmt.Fprintf(w, "ERROR")
