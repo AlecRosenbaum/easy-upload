@@ -108,26 +108,37 @@ func upload(w http.ResponseWriter, r *http.Request) {
 		t, _ := template.New("upload").Parse(html)
 		t.Execute(w, ip)
 	} else {
-		r.ParseMultipartForm(32 << 20)
-		file, handler, err := r.FormFile("uploadfile")
-		if err != nil {
-			fmt.Println(err)
-			return
-		}
-		defer file.Close()
-
-		usr, err := user.Current()
+		err := r.ParseMultipartForm(32 << 20)
 		if err != nil {
 			log.Fatal(err)
-		}
-		f, err := os.OpenFile(path.Join(usr.HomeDir, "Downloads", handler.Filename), os.O_WRONLY|os.O_CREATE, 0666)
-		if err != nil {
-			fmt.Println(err)
-			fmt.Fprintf(w, "ERROR")
 			return
 		}
-		defer f.Close()
-		io.Copy(f, file)
+		for _, fheaders := range r.MultipartForm.File {
+			for _, handler := range fheaders {
+				// open uploaded
+				infile, err := handler.Open()
+				if err != nil {
+					log.Fatal(err)
+					return
+				}
+				// open destination
+				usr, err := user.Current()
+				if err != nil {
+					log.Fatal(err)
+				}
+				outfile, err := os.OpenFile(path.Join(usr.HomeDir, "Downloads", handler.Filename), os.O_WRONLY|os.O_CREATE, 0666)
+				if err != nil {
+					fmt.Println(err)
+					fmt.Fprintf(w, "ERROR")
+					return
+				}
+				// 32K buffer copy
+				if _, err = io.Copy(outfile, infile); nil != err {
+					log.Fatal(err)
+					return
+				}
+			}
+		}
 		fmt.Fprintf(w, "UPLOAD COMPLETE!")
 	}
 }
